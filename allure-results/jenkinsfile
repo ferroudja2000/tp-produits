@@ -28,7 +28,8 @@ pipeline {
                 stage('run tests'){
                     steps {
                     
-                        sh 'bru run --env-file .\environments\env.yml --reporter-junit allure-results/TEST-results.xml'}
+                        sh 'bru run --env-file .\environments\env.yml --reporter-junit allure-results/TEST-results.xml'
+                    }
                 }
             }
         }
