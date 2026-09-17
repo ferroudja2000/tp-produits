@@ -1,0 +1,42 @@
+info:
+  name: ajouter 1er produit
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{URL}}/public/cart"
+  body:
+    type: json
+    data: |-
+      {
+        "product_id": "{{productId1}}",
+        "quantity": "{{stockId1}}"
+      }
+  auth:
+    type: bearer
+    token: "{{tokenn}}"
+
+runtime:
+  scripts:
+    - type: before-request
+      code: |-
+        let produit1 = bru.getCollectionVar("productId1");
+        let stock1 = bru.getCollectionVar("stockId1");
+    - type: after-response
+      code: |-
+        test("verifier le code 201",()=>{
+          expect(res.getStatus()).to.equal(201)
+        })
+
+        test("verifier message produit",()=>{
+          let response = res.getBody();
+          expect("Produit ajouté au panier.").to.equal(response.message);
+        })
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

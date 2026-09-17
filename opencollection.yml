@@ -1,0 +1,32 @@
+opencollection: 1.0.0
+
+info:
+  name: tp produits
+config:
+  proxy:
+    inherit: true
+    config:
+      protocol: http
+      hostname: ""
+      port: ""
+      auth:
+        username: ""
+        password: ""
+      bypassProxy: ""
+
+request:
+  variables:
+    - name: email
+      value: Carlee_Skiles78@yahoo.com
+    - name: role
+      value: user
+    - name: token
+      value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1c2VyLWFwaSIsInN1YiI6MjEyNSwicm9sZSI6InVzZXIiLCJpYXQiOjE3ODk2MzI0MzksImV4cCI6MTc4OTYzNjAzOSwianRpIjoiNjc1ODE0ZjdlODk3ZWZkNDM0OWU1ZGEzNjJlNzg0ZjgifQ.rAeh2nh__h4n1YEF5zXSchmJy-M8pmUpC9strNEi8MQ
+    - name: tokenn
+      value: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1c2VyLWFwaSIsInN1YiI6MjI4Mywicm9sZSI6InVzZXIiLCJpYXQiOjE3ODk2NDEzMjksImV4cCI6MTc4OTY0NDkyOSwianRpIjoiNDQ5YWRjYjA1M2I1N2U2MDIxZDdmOWVlNjU5NjE2NGQifQ.QbtTShvGwh6SimROGCGWVnwbLtn8vCRnUQjPrUX5H1M
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git

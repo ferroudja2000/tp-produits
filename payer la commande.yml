@@ -1,0 +1,37 @@
+info:
+  name: "payer la commande "
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{URL}}/public/orders/{{id1}}/pay"
+  body:
+    type: json
+    data: |-
+      {
+        "payment_method": "pm_card_visa"
+      }
+  auth:
+    type: bearer
+    token: "{{tokenn}}"
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test("verifier le code 200",()=>{
+          expect(res.getStatus()).to.equal(200)
+        })
+
+        test("verifier status ",()=>{
+          let response = res.getBody();
+          expect(response.order_status).to.equal("payee");
+        })
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

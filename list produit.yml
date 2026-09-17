@@ -1,0 +1,48 @@
+info:
+  name: list produit
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{URL}}/public/products"
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: after-response
+      code: |-
+        test("verifier le code 200",()=>{
+          expect(res.getStatus()).to.equal(200)  
+        })
+
+        test("selectionner 2 produits",()=> {
+          let products = res.getBody().products;
+
+          let i = Math.floor(Math.random() * products.length);
+          let j = Math.floor(Math.random() * products.length);
+
+        while (products[i].stock <= 4) {
+            i = Math.floor(Math.random() * products.length);
+        }
+
+        while (j === i || products[j].stock <= 4) {
+            j = Math.floor(Math.random() * products.length);
+        }
+
+        bru.setVar("productId1", products[i].id);
+        bru.setVar("productId2", products[j].id); 
+        bru.setVar("stockId1",products[i].stock);
+        bru.setVar("stockId2",products[j].stock);
+          
+
+          
+           
+        })
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

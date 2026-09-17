@@ -1,0 +1,42 @@
+info:
+  name: ajouter 2eme produit
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: https://api.efi-academy.com/user-api/public/cart
+  body:
+    type: json
+    data: |-
+      {
+        "product_id": "{{productId2}}",
+        "quantity": "{{stockId2}}"
+      }
+  auth:
+    type: bearer
+    token: "{{tokenn}}"
+
+runtime:
+  scripts:
+    - type: before-request
+      code: |-
+        let produit2 = bru.getCollectionVar("productId2");
+        let stock2 = bru.getCollectionVar("stockId2");
+    - type: after-response
+      code: |-
+        test("verifier le code 201",()=>{
+          expect(res.getStatus()).to.equal(201)
+        })
+
+        test("verifier message produit",()=>{
+          let response = res.getBody();
+          expect("Produit ajouté au panier.").to.equal(response.message);
+        })
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

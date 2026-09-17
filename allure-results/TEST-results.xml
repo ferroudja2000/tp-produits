@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="register" file="register.yml" errors="0" failures="0" skipped="0" tests="2" timestamp="2026-09-17T10:35:32.362" hostname="ferroudja" time="0.720">
+    <testcase name="verifier le code 201" status="pass" classname="register" time="0.360"/>
+    <testcase name="verifier le code envoyé et le code reçu " status="pass" classname="register" time="0.360"/>
+  </testsuite>
+  <testsuite name="login" file="login.yml" errors="0" failures="0" skipped="0" tests="2" timestamp="2026-09-17T10:35:32.371" hostname="ferroudja" time="0.750">
+    <testcase name="verifier le code 200 " status="pass" classname="login" time="0.375"/>
+    <testcase name="verifier que le token existe" status="pass" classname="login" time="0.375"/>
+  </testsuite>
+  <testsuite name="list produit" file="list produit.yml" errors="0" failures="0" skipped="0" tests="2" timestamp="2026-09-17T10:35:32.371" hostname="ferroudja" time="0.680">
+    <testcase name="verifier le code 200" status="pass" classname="list produit" time="0.340"/>
+    <testcase name="selectionner 2 produits" status="pass" classname="list produit" time="0.340"/>
+  </testsuite>
+  <testsuite name="ajouter 1er produit" file="ajouter 1er produit.yml" errors="0" failures="0" skipped="0" tests="2" timestamp="2026-09-17T10:35:32.371" hostname="ferroudja" time="0.497">
+    <testcase name="verifier le code 201" status="pass" classname="ajouter 1er produit" time="0.248"/>
+    <testcase name="verifier message produit" status="pass" classname="ajouter 1er produit" time="0.248"/>
+  </testsuite>
+  <testsuite name="ajouter 2eme produit" file="ajouter 2eme produit.yml" errors="0" failures="0" skipped="0" tests="2" timestamp="2026-09-17T10:35:32.371" hostname="ferroudja" time="0.621">
+    <testcase name="verifier le code 201" status="pass" classname="ajouter 2eme produit" time="0.310"/>
+    <testcase name="verifier message produit" status="pass" classname="ajouter 2eme produit" time="0.310"/>
+  </testsuite>
+  <testsuite name="valider la commande" file="valider la commande.yml" errors="0" failures="0" skipped="0" tests="2" timestamp="2026-09-17T10:35:32.371" hostname="ferroudja" time="0.326">
+    <testcase name="verifier le code 201" status="pass" classname="valider la commande" time="0.163"/>
+    <testcase name="verifier nbr item" status="pass" classname="valider la commande" time="0.163"/>
+  </testsuite>
+  <testsuite name="payer la commande " file="payer la commande.yml" errors="0" failures="0" skipped="0" tests="2" timestamp="2026-09-17T10:35:32.372" hostname="ferroudja" time="1.283">
+    <testcase name="verifier le code 200" status="pass" classname="payer la commande" time="0.641"/>
+    <testcase name="verifier status " status="pass" classname="payer la commande" time="0.641"/>
+  </testsuite>
+</testsuites>
